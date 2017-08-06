@@ -10,6 +10,21 @@ import (
 	"text/template"
 )
 
+type state struct {
+	n int
+}
+
+func (s *state) Set(n int) int {
+	s.n = n
+	return n
+}
+
+func (s *state) Inc() int {
+	s.n++
+	return s.n
+}
+
+var s state
 var (
 	funcMap = template.FuncMap{
 		"Pluralize":  inflect.Pluralize,
